@@ -1,0 +1,28 @@
+{
+  "name": "madrassa-management-system",
+  "version": "2.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "create-user": "node scripts/create-user.mjs",
+    "backup": "node scripts/backup.mjs",
+    "seed-demo": "node scripts/seed-demo.mjs",
+    "format": "prettier --write .",
+    "restore": "node scripts/restore.mjs"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.15.0",
+    "libsql": "^0.5.0",
+    "next": "^16.4.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.0"
+  }
+}

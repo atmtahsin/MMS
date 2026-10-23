@@ -1,0 +1,164 @@
+/*
+ * PRINTABLE DOCUMENTS
+ * -----------------------------------------------------------------------------
+ * Student ID cards, invoices, payslips and timetables. They open in an on-screen preview (.print-overlay) and are printed with
+ * the browser's Print command; @media print hides everything except the sheet.
+ *
+ * Printed paper is always white, so the preview re-declares the colour tokens
+ * with light values even when the rest of the app is in dark mode.
+ */
+
+.print-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  grid-template-columns: minmax(
+    0,
+    1fr
+  ); /* see .modal-backdrop: keeps the sheet inside narrow screens */
+  place-items: center;
+  padding: var(--space-3);
+  overflow: auto;
+  background: var(--color-overlay);
+}
+
+.print-sheet {
+  /* Force light colours: paper is white regardless of the app theme. */
+  color-scheme: light;
+  --color-text: #111111;
+  --color-text-muted: #555555;
+  --color-border: #cccccc;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #f7faf8;
+  --color-primary: #0e3b32;
+  --color-primary-hover: #165a4c;
+  --color-on-primary: #ffffff;
+  --color-heading-accent: #165a4c;
+  --color-chip: #e8eeeb;
+  --color-danger: #b3261e;
+
+  width: min(720px, 100%);
+  max-height: 94vh;
+  max-height: 94dvh;
+  padding: var(--space-4);
+  overflow: auto;
+  color: var(--color-text);
+  background: #ffffff;
+  border-radius: var(--radius-card);
+}
+
+.print-sheet-header {
+  padding-block-end: var(--space-2);
+  margin-block-end: var(--space-3);
+  border-block-end: 3px double var(--color-primary);
+}
+
+.print-sheet-header h2 {
+  font-size: var(--text-xl);
+}
+
+.print-sheet-actions {
+  margin-block-start: var(--space-4);
+}
+
+/* Two-column "label ... value" table used by invoices, payslips and receipts. */
+.document-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.document-table td {
+  padding: 6px 8px;
+  border-block-end: 1px solid var(--color-border);
+  overflow-wrap: anywhere;
+}
+
+.document-table td:last-child {
+  text-align: end;
+}
+
+.document-table .document-total-row td {
+  font-weight: 700;
+  border-block-end: 2px solid var(--color-primary);
+}
+
+/* ---------- Student ID card (credit-card proportions) ---------- */
+
+.id-card {
+  width: min(340px, 100%);
+  margin-inline: auto;
+  overflow: hidden;
+  color: #111111;
+  background: #ffffff;
+  border: 2px solid #0e3b32;
+  border-radius: 14px;
+}
+
+.id-card-header {
+  padding: 10px 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #0e3b32;
+}
+
+.id-card-body {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+}
+
+.id-card-photo {
+  flex-shrink: 0;
+  width: 84px;
+  height: 104px;
+  object-fit: cover;
+  background: #e8eeeb;
+  border-radius: 8px;
+}
+
+.id-card-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.id-card-footer {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  background: #e8eeeb;
+}
+
+/* ---------- Printing ---------- */
+
+@media print {
+  /* Hide the whole app, then show only the preview sheet. */
+  body * {
+    visibility: hidden;
+  }
+
+  .print-sheet,
+  .print-sheet * {
+    visibility: visible;
+  }
+
+  .print-overlay {
+    position: static;
+    padding: 0;
+    overflow: visible;
+    background: none;
+  }
+
+  .print-sheet {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    max-height: none;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

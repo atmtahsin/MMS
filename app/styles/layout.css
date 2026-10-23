@@ -1,0 +1,249 @@
+/*
+ * PAGE LAYOUT
+ * -----------------------------------------------------------------------------
+ * Mobile-first. The default rules below are for phones; the @media (min-width)
+ * blocks at the bottom of each section add the tablet and desktop behaviour.
+ *
+ *   Breakpoints used across the app:
+ *     720px   tablet  -> tables switch from stacked cards to real tables
+ *     1024px  desktop -> the sidebar stays open instead of sliding in as a drawer
+ */
+
+/* ---------- Overall frame: sidebar + main column ---------- */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  min-height: 100dvh; /* dvh = correct height on phones with a collapsing address bar */
+}
+
+.main-column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0; /* lets wide tables scroll inside instead of stretching the page */
+}
+
+/* ---------- Sidebar (a slide-in drawer on phones/tablets) ---------- */
+
+.sidebar {
+  position: fixed;
+  inset-block: 0;
+  inset-inline-start: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  width: min(290px, 86vw);
+  padding: var(--space-4) var(--space-3);
+  overflow-y: auto;
+  color: #ffffff;
+  background: linear-gradient(180deg, var(--color-sidebar-start), var(--color-sidebar-end));
+  transform: translateX(-100%);
+  visibility: hidden; /* keeps links out of the tab order while the drawer is closed */
+  transition:
+    transform var(--motion-fast) ease,
+    visibility var(--motion-fast);
+}
+
+.sidebar--open {
+  transform: none;
+  visibility: visible;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+/* The dim layer behind the open drawer; tapping it closes the drawer. */
+.sidebar-backdrop {
+  display: none;
+}
+
+.sidebar-backdrop--visible {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  display: block;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-2) var(--space-5);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.brand-logo {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-on-accent);
+  background: var(--color-accent);
+  border-radius: 12px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--touch-target);
+  padding: 0.65rem 0.75rem;
+  color: var(--color-sidebar-text);
+  text-align: start;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: var(--radius-control);
+}
+
+.sidebar-nav-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* The current screen: tinted background plus a gold marker on the leading edge. */
+.sidebar-nav-item--active {
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--color-sidebar-active-bg);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-2) 0;
+  font-size: var(--text-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar-user-role {
+  opacity: 0.75;
+}
+
+/* ---------- Top bar (screen title, menu button, language switch) ---------- */
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: max(var(--space-3), env(safe-area-inset-top)) var(--space-4) var(--space-3);
+  background: color-mix(in srgb, var(--color-page) 90%, transparent);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(8px);
+}
+
+.top-bar-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--text-xl);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- Main content area ---------- */
+
+.page-content {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding: var(--space-4);
+  padding-block-end: max(var(--space-6), env(safe-area-inset-bottom));
+}
+
+/* ---------- Reusable layout grids ---------- */
+
+/* A row of statistic cards. Phones: a compact 2-column grid. Larger screens: as many columns as fit. */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-block-end: var(--space-4);
+}
+
+/* Two (or more) cards side by side on wide screens, stacked on narrow ones. */
+.two-column-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-4);
+  align-items: start;
+}
+
+/* Same grid, but for cards that hold tables: never narrower than 420px, so rows do not get cramped. */
+.two-column-grid--wide-cards {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+}
+
+/* A form's fields: 1 column on phones, more columns when there is room. */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: var(--space-3);
+}
+
+.form-field--full {
+  grid-column: 1 / -1;
+}
+
+/* On phones, a lone last card (odd number of cards) spans the whole row instead of leaving a gap. */
+.stat-grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+/* ---------- Large phones and up ---------- */
+
+@media (min-width: 480px) {
+  .stat-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  }
+
+  .stat-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+
+/* ---------- Tablet and up ---------- */
+
+@media (min-width: 720px) {
+  .top-bar {
+    padding-inline: var(--space-5);
+  }
+
+  .page-content {
+    padding: var(--space-5);
+  }
+}
+
+/* ---------- Desktop: sidebar stays visible, drawer controls disappear ---------- */
+
+@media (min-width: 1024px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    flex-shrink: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    height: 100dvh;
+    transform: none;
+    visibility: visible;
+  }
+
+  /* Selectors are prefixed with .top-bar so they beat the generic .button display rule. */
+  .top-bar .menu-button,
+  .top-bar .top-bar-language-button {
+    display: none;
+  }
+}

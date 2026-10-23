@@ -1,0 +1,285 @@
+/*
+ * BANGLA (বাংলা) TRANSLATIONS
+ * -----------------------------------------------------------------------------
+ * Every piece of text shown on screen, in Bangla (বাংলা).
+ * To add a new label: add the SAME key to translations.en.js and translations.bn.js,
+ * then use it in a component with translate('your.key').
+ *
+ * Key naming: "<area>.<what>", for example "students.addTitle".
+ *   field.*   - form labels and table headings (named after the database column)
+ *   option.*  - values of dropdown lists and badges (named after the stored value)
+ */
+
+/** All interface text, keyed by translation key. */
+export const BANGLA_TRANSLATIONS = {
+  // ---- App name and general interface ----
+  'app.title': 'মাদ্রাসা ম্যানেজমেন্ট সিস্টেম',
+  'app.switchLanguageButton': 'English',
+  'common.menu': 'মেনু',
+  'common.saved': 'সংরক্ষিত হয়েছে',
+  'common.add': 'যোগ করুন',
+  'common.edit': 'সম্পাদনা',
+  'common.delete': 'মুছুন',
+  'common.cancel': 'বাতিল',
+  'common.save': 'সংরক্ষণ',
+  'common.close': 'বন্ধ করুন',
+  'common.view': 'দেখুন',
+  'common.print': 'প্রিন্ট',
+  'common.confirmDelete': 'এই তথ্য মুছে ফেলবেন?',
+  'common.search': 'খুঁজুন',
+  'common.emptyState': 'এখনও কিছু নেই।',
+  'common.all': 'সব',
+  'field.date': 'তারিখ',
+  'field.status': 'অবস্থা',
+
+  // ---- Sidebar menu and screen titles ----
+  'nav.dashboard': 'ড্যাশবোর্ড',
+  'nav.students': 'শিক্ষার্থী',
+  'nav.teachers': 'শিক্ষক',
+  'nav.academic': 'একাডেমিক',
+  'nav.accounting': 'হিসাব',
+  'nav.hrPayroll': 'এইচআর ও বেতন',
+  'nav.facilities': 'সুযোগ-সুবিধা',
+  'nav.administrative': 'প্রশাসনিক',
+  'nav.settings': 'সেটিংস',
+
+  // ---- Sign-in and user roles ----
+  'auth.signIn': 'সাইন ইন',
+  'auth.username': 'ব্যবহারকারীর নাম',
+  'auth.password': 'পাসওয়ার্ড',
+  'auth.invalidCredentials': 'ব্যবহারকারীর নাম বা পাসওয়ার্ড ভুল।',
+  'auth.passwordHint': 'পাসওয়ার্ড (কমপক্ষে ১০ অক্ষর)',
+  'auth.signOut': 'লগ আউট',
+  'role.admin': 'অ্যাডমিনিস্ট্রেটর',
+  'role.registrar': 'রেজিস্ট্রার',
+  'role.accounts': 'হিসাব কর্মী',
+
+  // ---- Students screen ----
+  'students.searchPlaceholder': 'নাম, নম্বর, পরিবার আইডি, অভিভাবক দিয়ে খুঁজুন',
+  'students.addTitle': 'শিক্ষার্থী যোগ করুন',
+  'students.editTitle': 'শিক্ষার্থীর তথ্য সম্পাদনা',
+  'students.sectionStudent': 'শিক্ষার্থীর তথ্য',
+  'students.sectionParents': 'পিতা-মাতা',
+  'students.sectionGuardian': 'অভিভাবক ও যোগাযোগ',
+  'students.allClasses': 'সব শ্রেণি',
+  'students.idCard': 'আইডি কার্ড',
+  'students.familyMembers': 'পরিবারের সদস্য',
+  'students.familyHint':
+    'শিক্ষার্থী নম্বর ও পরিবার আইডি স্বয়ংক্রিয়ভাবে তৈরি হয়। একই অভিভাবক ও ফোন নম্বরের শিক্ষার্থীরা একই পরিবার আইডি পায়।',
+  'students.photoReadError': 'ছবিটি পড়া যায়নি।',
+
+  // ---- Form field labels (the key after "field." is the database column name, so forms can look labels up automatically) ----
+  'field.full_name': 'পূর্ণ নাম',
+  'field.class_name': 'শ্রেণি',
+  'field.gender': 'লিঙ্গ',
+  'field.date_of_birth': 'জন্ম তারিখ',
+  'field.blood_group': 'রক্তের গ্রুপ',
+  'field.nationality': 'জাতীয়তা',
+  'field.admission_date': 'ভর্তির তারিখ',
+  'field.previous_school': 'পূর্ববর্তী প্রতিষ্ঠান',
+  'field.photo': 'ছবি',
+  'field.address': 'ঠিকানা',
+  'field.father_name': 'পিতার নাম',
+  'field.father_occupation': 'পিতার পেশা',
+  'field.mother_name': 'মাতার নাম',
+  'field.mother_occupation': 'মাতার পেশা',
+  'field.mother_phone': 'মাতার ফোন',
+  'field.guardian_name': 'পিতা-মাতা / অভিভাবক',
+  'field.guardian_relationship': 'শিক্ষার্থীর সাথে সম্পর্ক',
+  'field.phone': 'ফোন',
+  'field.emergency_phone': 'জরুরি ফোন',
+  'field.email': 'ইমেইল',
+  'field.student_number': 'শিক্ষার্থী নম্বর',
+  'field.family_id': 'পরিবার আইডি',
+  'field.type': 'ধরন',
+  'field.job_title': 'পদ / বিভাগ',
+  'field.qualification': 'শিক্ষাগত যোগ্যতা',
+  'field.subjects_taught': 'বিষয়',
+  'field.joining_date': 'যোগদানের তারিখ',
+  'field.fee_category': 'ফির ধরন',
+  'field.fee_label': 'ফির নাম',
+  'field.amount': 'পরিমাণ',
+  'field.invoice_number': 'ইনভয়েস',
+  'field.student': 'শিক্ষার্থী',
+  'field.fee': 'ফি',
+  'field.subject_name': 'বিষয়',
+  'field.teacher_id': 'শিক্ষক',
+  'field.room_name': 'কক্ষ',
+  'field.weekday': 'বার',
+  'field.start_time': 'শুরু',
+  'field.end_time': 'শেষ',
+  'field.name': 'নাম',
+  'field.capacity': 'ধারণক্ষমতা',
+  'field.room_type': 'ধরন',
+  'field.incident_type': 'ধরন',
+  'field.discount_type': 'ধরন',
+  'field.notes': 'মন্তব্য',
+  'field.title': 'শিরোনাম',
+  'field.event_date': 'তারিখ',
+  'field.incident_date': 'তারিখ',
+  'field.record_date': 'তারিখ',
+  'field.event_time': 'সময়',
+  'field.category': 'বিভাগ',
+  'field.student_id': 'শিক্ষার্থী',
+  'field.description': 'বিবরণ',
+  'field.action_taken': 'গৃহীত ব্যবস্থা',
+  'field.discount_value': 'মান',
+  'field.valid_from': 'কার্যকর শুরু',
+  'field.valid_to': 'কার্যকর শেষ',
+  'field.applies_to_fee_type': 'প্রযোজ্য ফি',
+  'field.reference_number': 'রেফারেন্স নম্বর',
+
+  // ---- Teachers and staff ----
+  'option.teacher': 'শিক্ষক',
+  'option.faculty': 'ফ্যাকাল্টি',
+
+  // ---- Option values shown in dropdowns and badges (key = "option." + the value stored in the database) ----
+  'option.male': 'ছেলে',
+  'option.female': 'মেয়ে',
+  'option.sat': 'শনিবার',
+  'option.sun': 'রবিবার',
+  'option.mon': 'সোমবার',
+  'option.tue': 'মঙ্গলবার',
+  'option.wed': 'বুধবার',
+  'option.thu': 'বৃহস্পতিবার',
+  'option.fri': 'শুক্রবার',
+  'option.classroom': 'শ্রেণিকক্ষ',
+  'option.lab': 'ল্যাব',
+  'option.hall': 'হল',
+  'option.library': 'পাঠাগার',
+  'option.office': 'অফিস',
+  'option.other': 'অন্যান্য',
+  'option.event': 'অনুষ্ঠান',
+  'option.exam': 'পরীক্ষা',
+  'option.holiday': 'ছুটি',
+  'option.meeting': 'সভা',
+  'option.warning': 'সতর্কতা',
+  'option.misconduct': 'অসদাচরণ',
+  'option.absence': 'অনুপস্থিতি',
+  'option.late': 'দেরিতে আসা',
+  'option.open': 'চলমান',
+  'option.resolved': 'নিষ্পত্তি',
+  'option.percent': 'শতাংশ',
+  'option.amount': 'নির্দিষ্ট পরিমাণ',
+  'option.all': 'সব ফি',
+  'option.active': 'সক্রিয়',
+  'option.inactive': 'নিষ্ক্রিয়',
+  'option.ended': 'শেষ',
+  'option.graduated': 'উত্তীর্ণ',
+  'option.student': 'শিক্ষার্থী ফি',
+  'option.enrollment': 'ভর্তি ফি',
+  'option.circular': 'বিজ্ঞপ্তি',
+  'option.certificate': 'সনদ',
+  'option.legal': 'আইনি',
+
+  // ---- Accounting screen ----
+  'accounting.invoices': 'ইনভয়েস',
+  'accounting.feeTypes': 'ফির ধরন',
+  'accounting.classOptional': 'শ্রেণি (ঐচ্ছিক)',
+  'accounting.generateInvoices': 'ইনভয়েস তৈরি করুন',
+  'accounting.invoiceFor': 'যাদের জন্য ইনভয়েস',
+  'accounting.wholeClass': 'পুরো শ্রেণি',
+  'accounting.wholeFamily': 'পুরো পরিবার',
+  'accounting.pay': 'পরিশোধ',
+  'accounting.paymentAmount': 'পরিমাণ',
+  'accounting.total': 'মোট',
+  'accounting.paid': 'পরিশোধিত',
+  'accounting.outstanding': 'বকেয়া',
+  'accounting.billed': 'বিলকৃত',
+  'accounting.allStatuses': 'সব অবস্থা',
+  'accounting.unpaid': 'বকেয়া আছে',
+  'accounting.fullyPaid': 'সম্পূর্ণ পরিশোধিত',
+  'accounting.scholarshipHint':
+    'সক্রিয় বৃত্তি স্বয়ংক্রিয়ভাবে বাদ যায়। বাল্ক ইনভয়েসে নিষ্ক্রিয় শিক্ষার্থীদের বাদ দেওয়া হয়।',
+
+  // ---- HR & Payroll screen ----
+  'payroll.title': 'বেতন তালিকা',
+  'payroll.salaryStructure': 'বেতন কাঠামো',
+  'payroll.basicSalary': 'মূল বেতন',
+  'payroll.allowance': 'ভাতা',
+  'payroll.deduction': 'কর্তন',
+  'payroll.gross': 'মোট বেতন',
+  'payroll.netPay': 'নেট বেতন',
+  'payroll.month': 'মাস',
+  'payroll.generate': 'বেতন তালিকা তৈরি',
+  'payroll.adjust': 'সমন্বয়',
+  'payroll.payslip': 'পেস্লিপ',
+  'payroll.confirmMarkPaid': 'এই বেতন পরিশোধিত হিসেবে চিহ্নিত করবেন?',
+
+  // ---- Academic and facilities screens ----
+  'academic.classesAndSubjects': 'শ্রেণি ও বিষয়',
+  'academic.classes': 'শ্রেণি',
+  'academic.showWeekView': 'সাপ্তাহিক ছক',
+  'academic.hideWeekView': 'সাপ্তাহিক ছক লুকান',
+  'schedule.roomSchedule': 'কক্ষের সময়সূচি',
+  'schedule.teacherSchedule': 'শিক্ষকের সময়সূচি',
+  'schedule.hoursPerWeek': 'ঘণ্টা / সপ্তাহ',
+  'recordType.schedule': 'শ্রেণির সময়সূচি',
+  'recordType.rooms': 'শ্রেণিকক্ষ',
+  'recordType.agenda': 'প্রতিষ্ঠানের কর্মসূচি',
+  'recordType.discipline': 'শৃঙ্খলামূলক ব্যবস্থা',
+  'recordType.scholarships': 'বৃত্তি',
+  'recordType.records': 'প্রশাসনিক নথি',
+
+  // ---- Dashboard ----
+  'dashboard.activeStudents': 'সক্রিয় শিক্ষার্থী',
+  'dashboard.activeStaff': 'সক্রিয় কর্মী',
+  'dashboard.feesCollected': 'আদায়কৃত ফি',
+  'dashboard.feesOutstanding': 'বকেয়া ফি',
+  'dashboard.openCases': 'চলমান শৃঙ্খলা মামলা',
+  'dashboard.today': 'আজ',
+  'dashboard.upcomingAgenda': 'আসন্ন কর্মসূচি',
+  'dashboard.studentsPerClass': 'শ্রেণিভিত্তিক শিক্ষার্থী',
+  'dashboard.recentUnpaidInvoices': 'সাম্প্রতিক বকেয়া ইনভয়েস',
+
+  // ---- Settings screen ----
+  'settings.users': 'ব্যবহারকারী',
+  'settings.saveUser': 'ব্যবহারকারী সংরক্ষণ',
+  'settings.importStudents': 'শিক্ষার্থী ইমপোর্ট (CSV)',
+  'settings.importTeachers': 'শিক্ষক ইমপোর্ট (CSV)',
+  'settings.importFeeTypes': 'ফির ধরন ইমপোর্ট (CSV)',
+  'settings.backupAndExport': 'ব্যাকআপ ও এক্সপোর্ট',
+  'settings.downloadBackup': 'ব্যাকআপ ডাউনলোড',
+  'settings.exportInvoicesCsv': 'ইনভয়েস এক্সপোর্ট (CSV)',
+  'settings.auditTrail': 'অডিট ট্রেইল',
+  'settings.auditTime': 'সময়',
+  'settings.auditUser': 'ব্যবহারকারী',
+  'settings.auditAction': 'কাজ',
+
+  // ---- Further labels ----
+  'academic.subjects': 'বিষয়',
+  'settings.userRole': '\u09ad\u09c2\u09ae\u09bf\u0995\u09be',
+  'settings.csvLegacyNote':
+    '\u09aa\u09c1\u09b0\u09a8\u09cb CSV \u0995\u09b2\u09be\u09ae\u09c7\u09b0 \u09a8\u09be\u09ae (\u09af\u09c7\u09ae\u09a8 cls, dob, guardian, role, qual) \u098f\u0996\u09a8\u0993 \u099a\u09b2\u09ac\u09c7\u0964',
+  'role.student':
+    '\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 / \u0985\u09ad\u09bf\u09ad\u09be\u09ac\u0995',
+  'nav.portalProfile': '\u0986\u09ae\u09be\u09b0 \u09aa\u09cd\u09b0\u09cb\u09ab\u09be\u0987\u09b2',
+  'nav.portalFees': '\u09ab\u09bf \u0993 \u09aa\u09c7\u09ae\u09c7\u09a8\u09cd\u099f',
+  'nav.portalTimetable': '\u0995\u09cd\u09b2\u09be\u09b8 \u09b0\u09c1\u099f\u09bf\u09a8',
+  'portal.noStudentsLinked':
+    '\u098f\u0987 \u0985\u09cd\u09af\u09be\u0995\u09be\u0989\u09a8\u09cd\u099f\u09c7 \u098f\u0996\u09a8\u0993 \u0995\u09cb\u09a8\u09cb \u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09af\u09c1\u0995\u09cd\u09a4 \u09a8\u09c7\u0987\u0964 \u0985\u09a8\u09c1\u0997\u09cd\u09b0\u09b9 \u0995\u09b0\u09c7 \u09ae\u09be\u09a6\u09cd\u09b0\u09be\u09b8\u09be \u0985\u09ab\u09bf\u09b8\u09c7 \u09af\u09cb\u0997\u09be\u09af\u09cb\u0997 \u0995\u09b0\u09c1\u09a8\u0964',
+  'portal.readOnlyNote':
+    '\u098f\u099f\u09bf \u09b6\u09c1\u09a7\u09c1 \u09a6\u09c7\u0996\u09be\u09b0 \u099c\u09a8\u09cd\u09af\u0964 \u0995\u09cb\u09a8\u09cb \u09a4\u09a5\u09cd\u09af \u09aa\u09b0\u09bf\u09ac\u09b0\u09cd\u09a4\u09a8 \u0995\u09b0\u09a4\u09c7 \u09ae\u09be\u09a6\u09cd\u09b0\u09be\u09b8\u09be \u0985\u09ab\u09bf\u09b8\u09c7 \u09af\u09cb\u0997\u09be\u09af\u09cb\u0997 \u0995\u09b0\u09c1\u09a8\u0964',
+  'settings.familyIdForStudentAccount':
+    '\u09ab\u09cd\u09af\u09be\u09ae\u09bf\u09b2\u09bf \u0986\u0987\u09a1\u09bf (\u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u0985\u09cd\u09af\u09be\u0995\u09be\u0989\u09a8\u09cd\u099f)',
+};
+
+/**
+ * Friendlier wording for error messages sent by the server.
+ * The key is the server's (English) message; the value is what the person sees.
+ * Messages that are not listed here are shown as they are.
+ */
+export const BANGLA_SERVER_ERROR_MESSAGES = {
+  'Missing or invalid field': 'অনুগ্রহ করে সব আবশ্যক তথ্য সঠিকভাবে দিন।',
+  'Schedule conflict: class': 'এই শ্রেণির ওই সময়ে আগে থেকেই ক্লাস আছে।',
+  'Schedule conflict: teacher': 'এই শিক্ষক ওই সময়ে আগে থেকেই ক্লাস নিচ্ছেন।',
+  'Schedule conflict: room': 'এই কক্ষ ওই সময়ে আগে থেকেই বরাদ্দ আছে।',
+  'End time must be after start time': 'শেষ সময় শুরুর সময়ের পরে হতে হবে।',
+  'Already exists': 'এই নামে আগে থেকেই তথ্য আছে।',
+  'No active staff have a salary set': 'আগে কর্মীদের বেতন নির্ধারণ করুন (বেতন কাঠামো ট্যাব)।',
+  'Already paid': 'এই বেতন ইতিমধ্যে পরিশোধিত।',
+  'Too many attempts. Try again later.':
+    '\u0985\u09a8\u09c7\u0995\u09ac\u09be\u09b0 \u099a\u09c7\u09b7\u09cd\u099f\u09be \u0995\u09b0\u09be \u09b9\u09af\u09bc\u09c7\u099b\u09c7\u0964 \u0985\u09a8\u09c1\u0997\u09cd\u09b0\u09b9 \u0995\u09b0\u09c7 \u0995\u09bf\u099b\u09c1\u0995\u09cd\u09b7\u09a3 \u09aa\u09b0\u09c7 \u0986\u09ac\u09be\u09b0 \u099a\u09c7\u09b7\u09cd\u099f\u09be \u0995\u09b0\u09c1\u09a8\u0964',
+  'Unknown Family ID':
+    '\u098f\u0987 \u09ab\u09cd\u09af\u09be\u09ae\u09bf\u09b2\u09bf \u0986\u0987\u09a1\u09bf-\u09a4\u09c7 \u0995\u09cb\u09a8\u09cb \u09b6\u09bf\u0995\u09cd\u09b7\u09be\u09b0\u09cd\u09a5\u09c0 \u09a8\u09c7\u0987\u0964',
+};

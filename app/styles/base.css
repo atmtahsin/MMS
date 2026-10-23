@@ -1,0 +1,99 @@
+/*
+ * BASE STYLES
+ * -----------------------------------------------------------------------------
+ * Element-level defaults: reset, typography, form controls, keyboard focus and
+ * reduced-motion support. Nothing here uses a class name.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%; /* stop phones from inflating text in landscape */
+}
+
+body {
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+  line-height: 1.55;
+  overflow-x: hidden; /* safety net: the page itself never scrolls sideways */
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+p {
+  margin-block: 0 var(--space-3);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ---------- Form controls ---------- */
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  min-height: var(--touch-target);
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  font-size: 16px; /* 16px stops iOS Safari from zooming into the field */
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+}
+
+textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+input[type='file'] {
+  padding: 0.5rem 0.75rem;
+}
+
+button {
+  font: inherit;
+}
+
+/* ---------- Keyboard focus: always clearly visible ---------- */
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Respect "reduce motion" system setting ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
